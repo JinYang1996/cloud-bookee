@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.bookee</groupId>
-    <artifactId>bookee</artifactId>
+    <artifactId>cloud-bookee</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>bookee</name>
+    <name>cloud-bookee</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
