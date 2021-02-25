@@ -2,16 +2,19 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="bookee" />
         <module name="cloud-consumer3" />
         <module name="cloud-eureka" />
         <module name="cloud-provider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bookee" target="1.8" />
       <module name="cloud-consumer1" target="1.8" />
       <module name="cloud-consumer2" target="1.8" />
       <module name="cloud-consumer3" target="1.8" />

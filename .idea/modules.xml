@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/bookee/bookee.iml" filepath="$PROJECT_DIR$/bookee/bookee.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloud-consumer3/cloud-consumer3.iml" filepath="$PROJECT_DIR$/cloud-consumer3/cloud-consumer3.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloud-eureka/cloud-eureka.iml" filepath="$PROJECT_DIR$/cloud-eureka/cloud-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloud-provider/cloud-provider.iml" filepath="$PROJECT_DIR$/cloud-provider/cloud-provider.iml" />
