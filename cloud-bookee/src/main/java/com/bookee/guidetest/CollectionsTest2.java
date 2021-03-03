@@ -2,6 +2,8 @@ package com.bookee.guidetest;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CollectionsTest2 {
 	public static void main(String[] args) {
@@ -41,6 +43,12 @@ public class CollectionsTest2 {
 		Collections.fill(arrayList, 5);
 		System.out.println(arrayList);
 		
-		
+		Map<String,String> map = new HashMap<>();
+		map.put("1","111");
+		map.put("2","222");
+		map.put("3","333");
+		map.forEach((k,v)->{
+			System.out.println(k+" "+v);
+		});
 	}
 }
