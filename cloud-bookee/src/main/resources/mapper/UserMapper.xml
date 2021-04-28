@@ -6,4 +6,7 @@
         <result column="name" property="name"/>
     </resultMap>
 
+    <select id="selectAllStatistics" resultMap="BaseResultMap">
+            select * from caf_user;
+    </select>
 </mapper>

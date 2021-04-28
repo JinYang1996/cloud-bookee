@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookee.bookee.mapper.StatisticsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.bookee.bookee.entity.StatisticsEo">
+        <result column="extension" property="extension"/>
+        <result column="count" property="count"/>
+    </resultMap>
+
+    <resultMap id="BaseResultMap2" type="com.bookee.bookee.entity.StatisticsEo">
+        <result column="extension" property="extension"/>
+        <result column="count" property="count"/>
+        <result column="tenant" property="tenant"/>
+    </resultMap>
+
+    <select id="selectAllTypeCount" resultMap="BaseResultMap">
+        select a.extension extension,count(1) count from(
+        <foreach collection="tenantIds" separator="UNION ALL" item="tenant">
+            select id,extension from ${tenant}.material_core_attr where status=0
+        </foreach>
+        )a group by extension;
+    </select>
+
+    <select id="selectAllTypeCountMore10" resultMap="BaseResultMap">
+        select a.extension extension,count(1) count from (
+        <foreach collection="tenantIds" separator="UNION ALL" item="tenant">
+            select id,extension from ${tenant}.material_core_attr where size>10240 and status=0
+        </foreach>
+        ) a group by extension;
+    </select>
+
+    <select id="selectDetailTenantCount" resultMap="BaseResultMap2">
+        <foreach collection="tenantIds" separator="UNION ALL" item="tenant">
+            select extension,count(1) count,'${tenant}' tenant from ${tenant}.material_core_attr where status=0 group by
+            extension
+        </foreach>
+    </select>
+
+    <select id="selectDetailTenantCountMore10" resultMap="BaseResultMap2">
+        <foreach collection="tenantIds" separator="UNION ALL" item="tenant">
+            select extension,count(1) count,'${tenant}' tenant from ${tenant}.material_core_attr where size>10240 and
+            status=0 group by extension
+        </foreach>
+    </select>
+
+    <select id="selectAllTenant" resultType="String">
+        select distinct tenant_id
+        from tenant_manager.tenant_baseinfo
+        where tenant_type in (1, 3)
+          and op_status in (1, 2)
+          and status = 0
+    </select>
+</mapper>
